@@ -40,16 +40,19 @@ func init() {
 
 func compose(desc, rev string, wip bool, build *debug.BuildInfo) string {
 	if build == nil {
-		if desc != "" {
-			return fmt.Sprintf("%s %s/%s", desc, runtime.GOOS, runtime.GOARCH)
-		}
-		if rev != "" {
-			if wip {
-				rev += "-wip"
+		if desc == "" {
+			if rev == "" {
+				return ""
 			}
-			return fmt.Sprintf("%s %s/%s", rev, runtime.GOOS, runtime.GOARCH)
+			if len(rev) > 12 {
+				rev = rev[:12]
+			}
+			desc = "g" + rev
 		}
-		return ""
+		if wip {
+			desc += "-wip"
+		}
+		return fmt.Sprintf("%s %s/%s", desc, runtime.GOOS, runtime.GOARCH)
 	}
 
 	var vcs struct {
@@ -70,13 +73,15 @@ func compose(desc, rev string, wip bool, build *debug.BuildInfo) string {
 		if vcs.revision == "" {
 			return ""
 		}
-		if vcs.modified {
-			desc = vcs.revision + "-wip"
-		} else {
-			desc = vcs.revision
+		rev = vcs.revision
+		if len(rev) > 12 {
+			rev = rev[:12]
 		}
+		desc = "g" + rev
 	}
-
+	if vcs.modified {
+		desc += "-wip"
+	}
 	return fmt.Sprintf("%s %s %s/%s", desc, build.GoVersion, runtime.GOOS, runtime.GOARCH)
 }
 

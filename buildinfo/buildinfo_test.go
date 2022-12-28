@@ -32,14 +32,14 @@ func TestCompose(t *testing.T) {
 			"407c1bad388caa515ba4727588711e508b38af3d",
 			false,
 			nil,
-			"407c1bad388caa515ba4727588711e508b38af3d" + target,
+			"g407c1bad388c" + target,
 		},
 		{ // 3
 			"",
 			"407c1bad388caa515ba4727588711e508b38af3d",
 			true,
 			nil,
-			"407c1bad388caa515ba4727588711e508b38af3d-wip" + target,
+			"g407c1bad388c-wip" + target,
 		},
 		{ // 4
 			"v0.0.0",
@@ -49,7 +49,7 @@ func TestCompose(t *testing.T) {
 			"v0.0.0" + target,
 		},
 		{ // 5
-			"v0.0.0-wip",
+			"v0.0.0",
 			"407c1bad388caa515ba4727588711e508b38af3d",
 			true,
 			nil,
@@ -72,7 +72,7 @@ func TestCompose(t *testing.T) {
 					},
 				},
 			},
-			"6e31ad65dcfcb9f0908cea7d17e17b5d78d1f0a8 go1.19.4" + target,
+			"g6e31ad65dcfc go1.19.4" + target,
 		},
 		{ // 7
 			"",
@@ -91,7 +91,7 @@ func TestCompose(t *testing.T) {
 					},
 				},
 			},
-			"6e31ad65dcfcb9f0908cea7d17e17b5d78d1f0a8-wip go1.19.4" + target,
+			"g6e31ad65dcfc-wip go1.19.4" + target,
 		},
 		{ // 8
 			"v0.0.0",
@@ -110,7 +110,7 @@ func TestCompose(t *testing.T) {
 					},
 				},
 			},
-			"6e31ad65dcfcb9f0908cea7d17e17b5d78d1f0a8 go1.19.4" + target,
+			"g6e31ad65dcfc go1.19.4" + target,
 		},
 		{ // 9
 			"v0.0.0",
@@ -129,7 +129,7 @@ func TestCompose(t *testing.T) {
 					},
 				},
 			},
-			"6e31ad65dcfcb9f0908cea7d17e17b5d78d1f0a8-wip go1.19.4" + target,
+			"g6e31ad65dcfc-wip go1.19.4" + target,
 		},
 		{ // 10
 			"v0.0.0",
@@ -148,7 +148,7 @@ func TestCompose(t *testing.T) {
 					},
 				},
 			},
-			"6e31ad65dcfcb9f0908cea7d17e17b5d78d1f0a8-wip go1.19.4" + target,
+			"g6e31ad65dcfc-wip go1.19.4" + target,
 		},
 		{ // 11
 			"",
@@ -167,7 +167,7 @@ func TestCompose(t *testing.T) {
 					},
 				},
 			},
-			"6e31ad65dcfcb9f0908cea7d17e17b5d78d1f0a8 go1.19.4" + target,
+			"g6e31ad65dcfc go1.19.4" + target,
 		},
 		{ // 12
 			"",
@@ -186,7 +186,7 @@ func TestCompose(t *testing.T) {
 					},
 				},
 			},
-			"6e31ad65dcfcb9f0908cea7d17e17b5d78d1f0a8-wip go1.19.4" + target,
+			"g6e31ad65dcfc-wip go1.19.4" + target,
 		},
 		{ // 13
 			"v0.0.0",
@@ -208,7 +208,7 @@ func TestCompose(t *testing.T) {
 			"v0.0.0 go1.19.4" + target,
 		},
 		{ // 14
-			"v0.0.0-wip",
+			"v0.0.0",
 			"6e31ad65dcfcb9f0908cea7d17e17b5d78d1f0a8",
 			true,
 			&debug.BuildInfo{
